@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>OH</title>
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script>
+		$(document).ready(function(){
+			
+			function hitDiv(e){
+				e.css("background","yellow");
+			}
+			$("body").on('keydown',function(e){
+				var keycode = e.which;
+				
+				if(keycode == 83){
+					hitDiv($("#a"));
+				}
+				if(keycode == 68){
+					hitDiv($("#s"));
+				}
+				if(keycode == 70){
+					hitDiv($("#d"));
+				}
+				if(keycode == 32){
+					hitDiv($("#f"));
+				}
+				if(keycode == 74){
+					hitDiv($("#z"));
+				}
+				if(keycode == 75){
+					hitDiv($("#x"));
+				}
+				if(keycode == 76){
+					hitDiv($("#c"));
+				}
+			});
+			$("body").on('keyup',function(){
+				$("#song>div").css("background","gray");
+			});
+		});
+
+	</script>
+	<style>
+		#song>div{
+			background:gray;
+			float:left;
+			margin: 5px;
+			width:50px;
+			height:20px;
+		}
+	</style>
+</head>
+<body>
+	<div id="song">
+		<div id="a">DO</div>
+		<div id="s">RE</div>
+		<div id="d">MI</div>
+		<div id="f">FA</div>
+		<div id="z">SO</div>
+		<div id="x">LA</div>
+		<div id="c">TI</div>
+	</div>
+</body>
+</html>

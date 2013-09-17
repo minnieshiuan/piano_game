@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title>Reading xml</title>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function()
+			{
+				$.ajax({
+					url:'Bee.xml',
+					type:'GET',
+					dataType:'xml',
+					timeout:1000,
+					error:function(xml){
+						alert("Reading XML Error"+xml);
+					},
+					success:function(xml){
+						
+						var divisions ,note ,counter = 0 ,tab = "" ,audio = "\n\tfunction loadAudio(){\n\t" ,noteType;
+						
+						$(xml).find('measure').each(function(){
+							//四小節一行
+							if(($(this).attr('number')-1)%4 == 0 || $(this).attr('number') == 1){
+								tab += "\n\ttabstave notation=true\n\tnotes";
+							}
+							else{
+								tab += " |";
+							}
+							
+							//譜號
+							divisions = ($(this).find('attributes').children('divisions').text());
+							
+							//音符
+							$(this).find('note').each(function(){
+								
+							});
+						});
+					}
+				});
+			});
+		</script>		
+	</head>
+	<body>
+		
+
+	</body>
+</html>
